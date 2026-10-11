@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, services } from '../site';
+---
+
+<Base>
+  <section class="bg-brand-50">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+      <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-brand-900 sm:text-5xl">
+        Taxes done right, without the stress.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-slate-600">{site.tagline}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href={site.bookingUrl} class="rounded-md bg-brand-600 px-6 py-3 font-semibold text-white hover:bg-brand-700" rel="noopener">
+          Book a consultation
+        </a>
+        <a href={site.portalUrl} class="rounded-md border border-brand-600 px-6 py-3 font-semibold text-brand-700 hover:bg-brand-100" rel="noopener">
+          Client Login
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl font-bold text-brand-900">What we do</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.slice(0, 6).map((s) => (
+          <div class="rounded-lg border border-slate-200 p-6">
+            <h3 class="font-semibold text-brand-900">{s.title}</h3>
+            <p class="mt-2 text-sm text-slate-600">{s.description}</p>
+          </div>
+        ))
+      }
+    </div>
+    <a href="/services" class="mt-8 inline-block font-semibold text-brand-600 hover:underline">See all services →</a>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl font-bold text-brand-900">How it works</h2>
+      <ol class="mt-8 grid gap-6 sm:grid-cols-3">
+        <li class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-sm font-semibold text-brand-600">Step 1</p>
+          <p class="mt-1 font-semibold">Book a call</p>
+          <p class="mt-2 text-sm text-slate-600">Tell us about your situation and we'll confirm what you need.</p>
+        </li>
+        <li class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-sm font-semibold text-brand-600">Step 2</p>
+          <p class="mt-1 font-semibold">Upload securely</p>
+          <p class="mt-2 text-sm text-slate-600">Send your documents through our secure client portal.</p>
+        </li>
+        <li class="rounded-lg bg-white p-6 shadow-sm">
+          <p class="text-sm font-semibold text-brand-600">Step 3</p>
+          <p class="mt-1 font-semibold">Review and file</p>
+          <p class="mt-2 text-sm text-slate-600">We prepare your return, walk you through it and file once you approve.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+</Base>

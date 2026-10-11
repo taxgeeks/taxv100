@@ -1,0 +1,34 @@
+---
+import { site, nav } from '../site';
+
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="border-b border-slate-200 bg-white">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4">
+    <a href="/" class="text-xl font-bold text-brand-900">{site.name}</a>
+    <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'hover:text-brand-600',
+              current === item.href ? 'text-brand-600' : 'text-slate-600',
+            ]}
+            aria-current={current === item.href ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={site.portalUrl}
+        class="rounded-md bg-brand-600 px-4 py-2 text-white hover:bg-brand-700"
+        rel="noopener"
+      >
+        Client Login
+      </a>
+    </nav>
+  </div>
+</header>
